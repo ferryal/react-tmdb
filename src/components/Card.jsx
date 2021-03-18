@@ -13,7 +13,7 @@ const Card = (props) => {
       {
         !isDetail
           ? (
-            <Link to={`/pokemon/${id}`} css={{ color: '#292829', textDecoration: 'none' }}>
+            <Link to={`/movie/${id}`} css={{ color: '#292829', textDecoration: 'none' }}>
               <div
                 className={className}
                 css={{
