@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { jsx, css, keyframes } from '@emotion/react';
+import { jsx, css } from '@emotion/react';
 import { fetchMovieDetail } from '../../actions/movie';
 import {
   Layout, Navbar, Loading,
@@ -22,9 +22,10 @@ const MovieDetail = () => {
   return (
     <div
       css={css`
-        background-image: #1e232b;
+        background: #1e232b;
         width: auto;
         color: #fff;
+        font-family: 'Montserrat';
     `}
     >
       <Navbar title={`Movie Detail - ${id}`} />

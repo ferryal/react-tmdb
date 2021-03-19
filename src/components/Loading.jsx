@@ -6,6 +6,9 @@ import Spinner from '../assets/spinner.gif';
 const Loading = () => (
   <div css={{
     textAlign: 'center',
+    height: '100vh',
+    width: '100vw',
+    marginTop: '10rem',
   }}
   >
     <img src={Spinner} alt="Loading..." />

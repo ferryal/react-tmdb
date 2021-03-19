@@ -108,6 +108,8 @@ const ListMovie = ({ isSearchable = true, kindURL = 'multi' }) => {
       css={css`
         background: #1e232b;
         width: auto;
+        color: #fff;
+        font-family: 'Montserrat'
     `}
     >
       <Navbar title="React Movie" />
@@ -142,22 +144,28 @@ const ListMovie = ({ isSearchable = true, kindURL = 'multi' }) => {
               margin-top: 4rem;
             `}
           >
+
             {Object.keys(items).length !== 0 && (
-              <select
-                css={css`
+              <>
+                <h3>Filter By Year</h3>
+                <select
+                  css={css`
               z-index: 10;
+              padding: 10px;
+              border-radius: 10px;
+              width: 150px;
             `}
-                value={selectedYear}
-                onChange={handleFilter}
-              >
-                {options}
-              </select>
+                  value={selectedYear}
+                  onChange={handleFilter}
+                >
+                  {options}
+                </select>
+              </>
             )}
           </div>
           { Object.keys(movies).length !== 0 && Object.keys(items).length !== 0 ? renderListMovie() : <Loading />}
         </div>
-        {loading && <Loading />}
-        {!loading && (
+        {Object.keys(items).length !== 0 && (
           <div css={css`
             display: flex;
             justify-content: center;
