@@ -26,9 +26,10 @@ const MovieDetail = () => {
         width: auto;
         color: #fff;
         font-family: 'Montserrat';
+        padding-top: 1rem;
     `}
     >
-      <Navbar title={`Movie Detail - ${id}`} />
+      <Navbar title="React Movie" />
       <Layout>
         {detail.loading && (
           <div css={css`margin-top: 1rem;`}>
@@ -40,7 +41,7 @@ const MovieDetail = () => {
             <div css={css`margin: 2rem;`}>
               <img src={`https://image.tmdb.org/t/p/w200${detail.poster_path}`} alt="Movie Poster" />
             </div>
-            <div>
+            <div css={css`width: 600px;height: 100vh;`}>
               <h1>{detail.title}</h1>
               {detail.genres && (
                 detail.genres.map((genre) => (
@@ -67,8 +68,18 @@ const MovieDetail = () => {
                   <p css={css`text-transform: uppercase;`}>budget</p>
                   <p>{detail.budget}</p>
                 </div>
+                <div css={css`font-size: 12px;padding-top: 1.6rem;`}>
+                  <p css={css`text-transform: uppercase;`}>release date</p>
+                  <p>{detail.release_date}</p>
+                </div>
+                <div css={css`font-size: 12px;padding-top: 1.6rem;`}>
+                  <p css={css`text-transform: uppercase;`}>status</p>
+                  <p>{detail.status}</p>
+                </div>
               </div>
-              <div css={css`width:400px; font-size: 14px;`}>
+              <div
+                css={css`width:500px; font-size: 14px;`}
+              >
                 <h3>Overview</h3>
                 <p css={css`line-height: 200%;`}>{detail.overview}</p>
               </div>
