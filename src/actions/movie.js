@@ -40,6 +40,12 @@ export function resetMovies() {
   };
 }
 
+export function resetMovieDetail() {
+  return {
+    type: MOVIEDETAIL.RESET_DETAIL_MOVIES,
+  };
+}
+
 export function fetchListMovie(page) {
   return (dispatch) => {
     dispatch(loading());

@@ -23,6 +23,11 @@ export const reducer = (state = initialState, action) => {
       ...state,
       loading: false,
     };
+  case MOVIEDETAIL.RESET_DETAIL_MOVIES:
+    return {
+      ...state,
+      detail: state.detail,
+    };
   default:
     return state;
   }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  fetchListMovie, fetchSearchMovie, resetMovies, fetchFilterMovieByYear,
+  fetchListMovie, fetchSearchMovie, resetMovies, fetchFilterMovieByYear, resetMovieDetail,
 } from '../../actions/movie';
 import {
   Navbar, Layout, Card, Loading, Button, SearchBar,
@@ -33,6 +33,7 @@ const ListMovie = ({ isSearchable = true, kindURL = 'multi' }) => {
 
   useEffect(() => {
     dispatch(fetchListMovie(page));
+    dispatch(resetMovieDetail());
   }, []);
 
   useEffect(() => {
