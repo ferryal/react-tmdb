@@ -34,6 +34,12 @@ function fetchFailedDetail() {
   };
 }
 
+export function resetMovies() {
+  return {
+    type: LISTMOVIE.RESET_MOVIES,
+  };
+}
+
 export function fetchListMovie(page) {
   return (dispatch) => {
     dispatch(loading());
@@ -69,6 +75,25 @@ export function fetchMovieDetail(id) {
       }
     }).catch(() => {
       dispatch(fetchFailedDetail());
+    });
+  };
+}
+
+export function fetchSearchMovie(query, page) {
+  return (dispatch) => {
+    axios.get(`${config.apiUrl}/search/movie?api_key=${config.key}&query=${query}&page=${page}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        const response = res.data;
+        dispatch(fetchSuccess(response));
+      } else {
+        dispatch(fetchFailed());
+      }
+    }).catch(() => {
+      dispatch(fetchFailed());
     });
   };
 }

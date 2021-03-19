@@ -23,6 +23,11 @@ export const reducer = (state = initialState, action) => {
       ...state,
       loading: false,
     };
+  case LISTMOVIE.RESET_MOVIES:
+    return {
+      ...state,
+      movies: state.movies,
+    };
   default:
     return state;
   }
