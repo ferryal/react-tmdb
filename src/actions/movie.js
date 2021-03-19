@@ -97,3 +97,22 @@ export function fetchSearchMovie(query, page) {
     });
   };
 }
+
+export function fetchFilterMovieByYear(year, page) {
+  return (dispatch) => {
+    axios.get(`${config.apiUrl}/discover/movie?api_key=${config.key}&sort_by=popularity.desc&include_adult=false&include_video=false&year=${year}&page=${page}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        const response = res.data;
+        dispatch(fetchSuccess(response));
+      } else {
+        dispatch(fetchFailed());
+      }
+    }).catch(() => {
+      dispatch(fetchFailed());
+    });
+  };
+}
